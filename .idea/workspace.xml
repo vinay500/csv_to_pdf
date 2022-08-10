@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65d77438-ab86-46f4-bd29-0d712ba77bbc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csv_to_pdf_5_aug.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_to_pdf_5_aug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample_5_aug.html" beforeDir="false" afterPath="$PROJECT_DIR$/sample_5_aug.html" afterDir="false" />
     </list>

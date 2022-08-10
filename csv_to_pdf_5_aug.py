@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime,date
 
 df = pd.DataFrame(pd.read_excel("pdf.xlsx", engine='openpyxl'))
 print("df:")
@@ -71,6 +71,9 @@ print(resultDict)
 present_date_time = datetime.now()
 present_date_time_in_format = present_date_time.strftime("%d/%m/%Y %H:%M:%S")
 print("present_date_time_in_format:",present_date_time_in_format)
+today_date = date.today()
+today_date_in_format = today_date.strftime("%d/%m/%Y")
+print("today_date_in_format", today_date_in_format)
 
 html_string = '''
 <!DOCTYPE html>
@@ -83,10 +86,10 @@ html_string = '''
             <img src="sample-912.jpg" style="transform:rotate(90deg); width:20px;">
         </div>
         <div>
-            <h2>Rapprochement Bancaire au 31/03/2020</h2>
+            <h2>Rapprochement Bancaire au {0}</h2>
         </div>
         <div>
-            <p>Report run on {0}</p>
+            <p>Report run on {1}</p>
         </div>
     </header>
     <br>
@@ -94,7 +97,7 @@ html_string = '''
      <br>
   </body>
 </html>
-'''.format(present_date_time_in_format)
+'''.format(today_date_in_format, present_date_time_in_format)
 
 resultKeys = ['Date comptable', 'Montant Dépositaire', 'Montant Valorisateur', 'Origine', 'Référence', 'Date de valeur',
               'Libellé', 'Trans Code', 'Commentaire', 'Date Régul.']
