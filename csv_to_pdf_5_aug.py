@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 
 df = pd.DataFrame(pd.read_excel("pdf.xlsx", engine='openpyxl'))
 print("df:")
@@ -65,6 +66,12 @@ print(resultDict)
 # 64.67, 3: 69364.67, 4: 69364.67, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0}, 'Solde théorique Valorisateur': {0: 69364.67, 1: 69364.67, 2: 6
 # 9364.67, 3: 69364.67, 4: 69364.67, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0}, 'Check': {0: -30766.05, 1: -30766.05, 2: -30766.05, 3: -30766
 # .05, 4: -30766.05, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0}}
+
+# present date and time
+present_date_time = datetime.now()
+present_date_time_in_format = present_date_time.strftime("%d/%m/%Y %H:%M:%S")
+print("present_date_time_in_format:",present_date_time_in_format)
+
 html_string = '''
 <!DOCTYPE html>
 <html>
@@ -79,7 +86,7 @@ html_string = '''
             <h2>Rapprochement Bancaire au 31/03/2020</h2>
         </div>
         <div>
-            <p>Report run on 03/11/2020 18:58:23</p>
+            <p>Report run on {0}</p>
         </div>
     </header>
     <br>
@@ -87,7 +94,7 @@ html_string = '''
      <br>
   </body>
 </html>
-'''
+'''.format(present_date_time_in_format)
 
 resultKeys = ['Date comptable', 'Montant Dépositaire', 'Montant Valorisateur', 'Origine', 'Référence', 'Date de valeur',
               'Libellé', 'Trans Code', 'Commentaire', 'Date Régul.']
