@@ -115,20 +115,26 @@ for fond in resultDict['Fonds:'].values():
         # print("new:",fond)
         duplicate_fond_values[fond]=1
 
+# for i in duplicate_fond_values.values():
+#     print("duplicate_fond_values:",i)
 
 # fond values list
 fond_keys_list=[]
 for k in duplicate_fond_values.keys():
     if k not in fond_keys_list:
         fond_keys_list.append(k)
-# for k in fond_keys_list:
-#     print(k)
 
+# for k in fond_keys_list:
+#     print("k:",k)
+
+# for date in resultDict['Date comptable']:
+#     print("date in Date comptable:",date)
 
 fond_index=-1
 index=-1
 for value in duplicate_fond_values.values():
     fond_index+=1
+    print("fond_index:",fond_keys_list[fond_index])
     html_string += """
                  <table style="min-width: 100%;">
         <thead>
@@ -199,46 +205,49 @@ for value in duplicate_fond_values.values():
             </th>
             </tr>
         </thead>
-     </table>
-                <table style="border-collapse: collapse;">
-                    <thead>
-                        <tr>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:9.5%; border: 1px solid #dddddd">Data comptable</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:10.5%; border: 1px solid #dddddd">Montant Depositaire</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:9%; border: 1px solid #dddddd">Montant Valorisateur</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:6%; border: 1px solid #dddddd">Origine</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:11.5%; border: 1px solid #dddddd">Reference</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:12%; border: 1px solid #dddddd">Date de valeur</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:15%; border: 1px solid #dddddd">Libelle</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:5%; border: 1px solid #dddddd">Trans Code</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; width:9%; border: 1px solid #dddddd">Commentaire</th>
-                            <th style="background-color:#0A5A97; color:white; text-align:left; border: 1px solid #dddddd">Date Regul.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+    </table>
+    <table style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:9.5%; border: 1px solid #dddddd">Data comptable</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:10.5%; border: 1px solid #dddddd">Montant Depositaire</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:9%; border: 1px solid #dddddd">Montant Valorisateur</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:6%; border: 1px solid #dddddd">Origine</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:11.5%; border: 1px solid #dddddd">Reference</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:12%; border: 1px solid #dddddd">Date de valeur</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:15%; border: 1px solid #dddddd">Libelle</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:5%; border: 1px solid #dddddd">Trans Code</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; width:9%; border: 1px solid #dddddd">Commentaire</th>
+                <th style="background-color:#0A5A97; color:white; text-align:left; border: 1px solid #dddddd">Date Regul.</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
               """.format(fond_keys_list[fond_index],
                          fond_keys_list[fond_index])
     # error in this loop
+    print("value:",value)
     for i in range(0,value):
         index+=1
         print("i:",i)
-        print("index:",index)
-        print(resultDict['Date comptable'][index])
+        # print("index:",index)
+        # print(resultDict['Date comptable'][index])
         html_string += """
-                    <tr style="border: 1px solid #dddddd;">
-                                <td style="font-size: 0.8rem;">{0}</td>
-                                <td style="text-align: right; border: 1px solid #dddddd; font-size: 0.8rem; ">{1}</td>
-                                <td style="text-align: right; border: 1px solid #dddddd; font-size: 0.8rem;">{2}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{3}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{4}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{5}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{6}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{7}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{8}</td>
-                                <td style="border: 1px solid #dddddd; font-size: 0.8rem;">{9}</td>
+                <table ">
+                    <tr>
+                        <td style="text-align:left; width:9.5%;">{0}</td>
+                        <td style="text-align: right; text-align:left; width:content;">{1}</td>
+                        <td style="text-align: right; text-align:left; width:9%;">{2}</td>
+                        <td style="">{3}</td>
+                        <td style="">{4}</td>
+                        <td style="">{5}</td>
+                        <td style="">{6}</td>
+                        <td style="">{7}</td>
+                        <td style="">{8}</td>
+                        <td style="">{9}</td>
                     </tr>
+                </table>
                     """.format(resultDict['Date comptable'][index],
                                resultDict['Montant Dépositaire'][index],
                                resultDict['Montant Valorisateur'][index],
@@ -250,6 +259,7 @@ for value in duplicate_fond_values.values():
                                resultDict['Commentaire'][index],
                                resultDict['Date Régul.'][index]
                                )
+
 with open('sample_5_aug.html', 'w') as f:
     f.write(html_string)
 
